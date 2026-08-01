@@ -39,13 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 2. Dynamic Price Calculator Preview in Estimate Form
+    // 2. Dynamic Price & Solution Preview in Estimate Form
     const servicePrices = {
-        'ac-repair': '₹999 Diagnostics (Free with repair)',
-        'ac-maintenance': '₹1,499 Seasonal AC Service & Gas Check',
-        'new-hvac': 'Starting at ₹25,000 Installed',
-        'duct': '₹1,999 Full Duct Inspection & Sanitize',
-        'thermostat': '₹1,299 Smart Thermostat + Setup'
+        'split-ac': 'Official Inverter Split Solutions',
+        'vrf-system': 'Toshiba Commercial VRF Engineering',
+        'cassette-ac': 'Architectural Ceiling Cassette Systems',
+        'ductable-ac': 'Concealed Ductable HVAC Integration',
+        'bulk-sales': 'Turnkey Enterprise HVAC Proposals'
     };
 
     if (estServiceSelect && estPricePreview) {
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         estimateForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const name = document.getElementById('estName').value;
-            showNotification(`Thank you ${name}! Your estimate request has been sent. Our team will call you within 15 mins.`);
+            showNotification(`Thank you ${name}! Your HVAC consultation request has been submitted. Our engineering team will contact you shortly.`);
             estimateForm.reset();
         });
     }
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         newsletterForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const emailInput = document.getElementById('newsletterEmail');
-            showNotification(`Subscribed successfully! HVAC advice sent to ${emailInput.value}`);
+            showNotification(`Subscribed successfully! Engineering insights and HVAC updates will be sent to ${emailInput.value}`);
             newsletterForm.reset();
         });
     }
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modalAppointmentForm) {
         modalAppointmentForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            showNotification(`Appointment booked successfully! We will confirm your time slot shortly.`);
+            showNotification(`Consultation requested successfully! Our HVAC specialist will confirm your schedule shortly.`);
             const modalEl = document.getElementById('appointmentModal');
             if (modalEl && typeof bootstrap !== 'undefined') {
                 const modal = bootstrap.Modal.getInstance(modalEl);
@@ -341,6 +341,15 @@ document.addEventListener('DOMContentLoaded', () => {
             if (specModalDesc) specModalDesc.textContent = desc || '';
             if (specModalHighlights) specModalHighlights.textContent = specs || '';
             if (specModalImg && img) specModalImg.src = img;
+        });
+    });
+
+    // 10. Interactive Blog Category Filter Pills
+    const blogFilterPills = document.querySelectorAll('.blog-filter-pill');
+    blogFilterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+            blogFilterPills.forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
         });
     });
 });
