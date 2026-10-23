@@ -352,4 +352,71 @@ document.addEventListener('DOMContentLoaded', () => {
             pill.classList.add('active');
         });
     });
+
+    // 11. Product Enquire Now Button Modal Pre-population
+    const productEnquireBtns = document.querySelectorAll('.btn-enquire-product');
+    productEnquireBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const prodName = btn.getAttribute('data-product-name');
+            const modalTitle = document.querySelector('#appointmentModal .modal-title');
+            if (modalTitle && prodName) {
+                modalTitle.innerHTML = `<i class="fa-solid fa-file-invoice-dollar me-2 text-accent-orange"></i>Enquire: ${prodName}`;
+            }
+        });
+    });
+
+    // 12. Service Area Pin Code & Locality Search Tool
+    const areaSearchBtn = document.getElementById('areaSearchBtn');
+    const areaSearchInput = document.getElementById('areaSearchInput');
+    const areaSearchResult = document.getElementById('areaSearchResult');
+
+    if (areaSearchBtn && areaSearchInput && areaSearchResult) {
+        const coveredKeywords = [
+            'pondicherry', 'puducherry', 'lawspet', 'white town', 'muthialpet', 'saram',
+            'reddiarpalayam', 'villianur', 'kalapet', 'ariyankuppam', 'bahour', 'thavalakuppam',
+            'villupuram', 'tindivanam', 'vikravandi', 'valavanur', 'gingee', 'mailam',
+            'cuddalore', 'panruti', 'neyveli', 'chidambaram', 'nellikuppam', 'vadalur',
+            'auroville', 'marakkanam', 'sedarapet', '605001', '605002', '605003', '605004',
+            '605005', '605006', '605007', '605008', '605009', '605010', '605011', '605014',
+            '605602', '604001', '607001', '607002', '607003', '607801', '608001'
+        ];
+
+        function checkArea() {
+            const query = areaSearchInput.value.trim().toLowerCase();
+            if (!query) {
+                areaSearchResult.className = 'area-search-result notice';
+                areaSearchResult.innerHTML = '<i class="fa-solid fa-circle-info me-1"></i> Please enter a town, area name, or pin code to check.';
+                return;
+            }
+
+            const isMatch = coveredKeywords.some(keyword => query.includes(keyword) || keyword.includes(query));
+
+            if (isMatch) {
+                areaSearchResult.className = 'area-search-result success';
+                areaSearchResult.innerHTML = `<strong><i class="fa-solid fa-circle-check text-success me-1"></i> Yes! We provide full service in "${areaSearchInput.value.trim()}".</strong><br>Direct Carrier showroom dispatch, same-day site visit & 24/7 technical support available.<br><div class="mt-2 d-flex gap-2 flex-wrap"><a href="tel:04132242111" class="btn btn-sm btn-dark rounded-pill px-3"><i class="fa-solid fa-phone me-1"></i> Call 0413-2242111</a><a href="https://wa.me/919843020486?text=Hi%20Comfort%20Aircon%2C%20I%20am%20from%20${encodeURIComponent(areaSearchInput.value.trim())}%20and%20would%20like%20to%20enquire%20about%20Carrier%20AC%20sales" target="_blank" class="btn btn-sm btn-success rounded-pill px-3"><i class="fa-brands fa-whatsapp me-1"></i> WhatsApp Booking</a></div>`;
+            } else {
+                areaSearchResult.className = 'area-search-result notice';
+                areaSearchResult.innerHTML = `<strong><i class="fa-solid fa-truck-fast text-primary me-1"></i> Special Delivery Available for "${areaSearchInput.value.trim()}"!</strong><br>We serve all surrounding areas in Puducherry and Tamil Nadu via express dispatch. Call our engineering team at <a href="tel:04132242111" class="fw-bold text-dark text-decoration-none">0413-2242111</a> or WhatsApp us for instant scheduling.`;
+            }
+        }
+
+        areaSearchBtn.addEventListener('click', checkArea);
+        areaSearchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                checkArea();
+            }
+        });
+    }
+
+    // 10. Hero Banner Carousel Initialization
+    const heroCarouselEl = document.getElementById('heroBannerCarousel');
+    if (heroCarouselEl && typeof bootstrap !== 'undefined' && bootstrap.Carousel) {
+        new bootstrap.Carousel(heroCarouselEl, {
+            interval: 3500,
+            ride: 'carousel',
+            wrap: true,
+            pause: 'hover'
+        });
+    }
 });
