@@ -1945,12 +1945,12 @@ a {
   position: fixed;
   bottom: 24px;
   right: 24px;
-  background: #25D366;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
   color: #FFFFFF !important;
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1961,14 +1961,13 @@ a {
 
 .floating-whatsapp-btn i {
   font-size: 2rem;
-  color: #FFFFFF !important;
 }
 
 .floating-whatsapp-btn:hover {
-  background: #20ba59;
+  background: linear-gradient(135deg, #128C7E 0%, #075E54 100%);
   color: #FFFFFF !important;
   transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 14px 30px rgba(37, 211, 102, 0.55);
+  box-shadow: 0 14px 35px rgba(37, 211, 102, 0.55);
 }
 
 /* PRODUCTS SHOWCASE SECTION & 3-CARD SLIDER (Alternating Cool-Tone Theme) */
@@ -2664,15 +2663,14 @@ a {
 
 /* Hero Action Buttons */
 .hero-whatsapp-btn {
-  background: #25D366 !important;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%) !important;
   color: #FFFFFF !important;
-  border: 1px solid #25D366 !important;
+  border: none !important;
   transition: var(--transition-fast) !important;
 }
 
 .hero-whatsapp-btn:hover {
-  background: #20ba59 !important;
-  border-color: #20ba59 !important;
+  background: linear-gradient(135deg, #128C7E 0%, #075E54 100%) !important;
   color: #FFFFFF !important;
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45) !important;
@@ -2921,9 +2919,9 @@ a {
 }
 
 .btn-area-whatsapp:hover {
-  background: #20ba59;
+  background: #1eb956;
   color: #FFFFFF !important;
-  border-color: #20ba59;
+  border-color: #1eb956;
   box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
   transform: translateY(-1px);
 }
@@ -3060,7 +3058,7 @@ a {
 }
 
 .mobile-bar-whatsapp {
-  color: #25D366 !important;
+  color: #128C7E !important;
 }
 
 .mobile-bar-whatsapp:active,
@@ -3267,16 +3265,4 @@ body.maintenance-page {
   color: #FFFFFF !important;
   border-color: #25D366;
   box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
-}
-
-/* WhatsApp Brand Color Harmonization */
-.btn-outline-success {
-  color: #25D366 !important;
-  border-color: #25D366 !important;
-}
-
-.btn-outline-success:hover {
-  background-color: #25D366 !important;
-  border-color: #25D366 !important;
-  color: #FFFFFF !important;
 }
